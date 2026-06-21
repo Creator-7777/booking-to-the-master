@@ -159,7 +159,11 @@
       dateInput.addEventListener("change", () => {
         const selectedDate = dateInput.value;
 
-        const day = new Date(selectedDate).getDay(); // 0 - Sunday, 6 - Saturday
+        const [y,m,d] = selectedDate.split("-");
+		const day = new Date(
+		    Number(y),
+		    Number(m)-1,
+		    Number(d)).getDay();
 
 		  // ❌ Блокируем пятницу (5) и субботу (6)
 		  if (day === 5 || day === 6) {
