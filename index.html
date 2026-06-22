@@ -154,7 +154,8 @@
       }
 
       dateInput.setAttribute("min", new Date().toISOString().split("T")[0]);
-      const timeSelect = document.getElementById("time");
+     
+	  const timeSelect = document.querySelector('select[name="time"]');
 
       dateInput.addEventListener("change", () => {
         const selectedDate = dateInput.value;
