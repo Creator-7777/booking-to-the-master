@@ -180,23 +180,25 @@
         timeSelect.innerHTML = '<option value="">Загрузка...</option>';
         document.getElementById("no-slots").style.display = "none";
 
-      fetch("/.netlify/functions/getBookedTimes?date=" + encodeURIComponent(selectedDate)).then(r => r.json()).then(result => {
-        const bookedTimes = result.data || [];
-        timeSelect.innerHTML = '<option value="">Выберите время</option>';      
-        let available = false;  
-        timeSlots.forEach(slot => {
-          if (!bookedTimes.includes(slot)) {
-            const option = document.createElement("option");
-            option.value = slot;
-            option.textContent = slot;
-            timeSelect.appendChild(option);
-            available = true;
-          }
-        });
-        if (!available) {
-          document.getElementById("no-slots").style.display = "block";
-        }
-      });
+	      fetch("/.netlify/functions/getBookedTimes?date=" + encodeURIComponent(selectedDate)).then(r => r.json()).then(result => {
+	        const bookedTimes = result.data || [];
+	        timeSelect.innerHTML = '<option value="">Выберите время</option>';      
+	        let available = false;  
+	        timeSlots.forEach(slot => {
+	          if (!bookedTimes.includes(slot)) {
+	            const option = document.createElement("option");
+	            option.value = slot;
+	            option.textContent = slot;
+	            timeSelect.appendChild(option);
+	            available = true;
+	          }
+	        });
+	        if (!available) {
+	          document.getElementById("no-slots").style.display = "block";
+	        }
+	      });
+
+	  });
 
 		function validatePhone(phone) {
 		  const pattern = /^05\d\d{7}$/;
