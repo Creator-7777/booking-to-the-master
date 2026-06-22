@@ -5,7 +5,7 @@ exports.handler = async (event) => {
 
   const response =
     await fetch(
-      "https://script.google.com/macros/s/AKfycbzLO-J9EFM29aN1aBNYs87CLb9O-vxUxFx7TtblDzZs4eulHXOfPtgFjgYzq34gLaL3/exec" +
+      "https://script.google.com/macros/s/AKfycbyaOuK1fcjL4GVswhQlCy1hjcwfER79t3AubMrlFENs9IAXeRZc505AUgmUoVC8vLnk/exec" +
       "?action=getBookedTimes" +
       "&date=" +
       encodeURIComponent(date)
